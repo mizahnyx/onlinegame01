@@ -3,3 +3,12 @@
 deps
 log
 ebin
+*~
+node_modules
+.sass-cache
+app/assets/*.js
+app/assets/*/*.js
+app/assets/*/*/*.js
+app/assets/css
+app/bower_components
+priv/static

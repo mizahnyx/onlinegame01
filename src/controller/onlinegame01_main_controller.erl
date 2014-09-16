@@ -6,3 +6,6 @@ hello('GET', []) ->
 
 login('GET', []) ->
     ok.
+
+index('GET', []) ->
+    ok.

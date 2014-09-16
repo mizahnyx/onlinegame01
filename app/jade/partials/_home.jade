@@ -1,0 +1,16 @@
+.row
+  .col-md-6.col-md-offset-3
+    h1 prueba01 running!
+.row
+  p.col-md-6.col-md-offset-3.entry-home(data-bind="css: { 'alert-success': status()==='active', 'alert-warning': status()!=='active'}")
+    | Knockout data binding:
+    span.status(data-bind='text: status') Inactive
+.row
+  p.col-md-6.col-md-offset-3.entry-home.alert-success
+    span
+      a(href='http://fortawesome.github.io/Font-Awesome') Font Awesome icons 
+      | are available
+    i.fa.fa-check-square-o
+include _socketio_example.jade
+include _baconjs_example.jade
+include _threejs_example.jade
