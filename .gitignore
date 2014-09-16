@@ -2,3 +2,4 @@
 *.beam
 deps
 log
+ebin
