@@ -12,3 +12,5 @@ app/assets/*/*/*.js
 app/assets/css
 app/bower_components
 priv/static
+src/view/*.html
+src/view/*/*.html
