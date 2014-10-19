@@ -9,7 +9,9 @@ define ["socket.io-client"], ->
     
     # saving knockout model
     self.UI = UI
-    socket = io.connect("http://localhost")
+    wsc = new WebSocket("ws://localhost:8001/websocket/test",
+      "some_service_name")
+    socket = io.connect("http://localhost:8001/websocket/test")
     
     # global window:true
     
