@@ -17,6 +17,8 @@ require.config
       "threex.cannonbody"
     "threex.cannonworld": "../../bower_components/threex.cannonjs/" +
       "threex.cannonworld"
+    "threex-colladaloader": "../../bower_components/threex-colladaloader/" +
+      "ColladaLoader"
 
   shim:
     "jquery.bootstrap":
@@ -33,6 +35,9 @@ require.config
 
     "threejs":
       exports: "THREE"
+      
+    "threejs-colladaloader":
+      deps: ["threejs"]
 
   map:
     "*":

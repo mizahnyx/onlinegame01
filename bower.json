@@ -10,8 +10,8 @@
     "knockout.validation": "^1.0.2",
     "bootstrap-sass": "^3.0.2",
     "bacon": "^0.7.19",
-    "threejs": "*",
-    "threex.cannonjs":"*"
+    "threejs": "r66",
+    "threex.cannonjs":"*",
+    "threex-colladaloader":"*"
   }
 }
-

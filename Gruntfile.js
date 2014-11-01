@@ -132,6 +132,18 @@ module.exports = function (grunt) {
             ]
           }
         ]
+      },
+      gamedata: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= yeoman.app %>/assets/gamedata',
+            dest: '<%= yeoman.dist %>/assets/gamedata',
+            src: [
+              '*'
+            ]
+          }
+        ]
       }
     },
     compass: {
@@ -170,7 +182,13 @@ module.exports = function (grunt) {
     },
     uglify: {
       options: {
-        banner: '<%= banner %>'
+        banner: '<%= banner %>',
+        sourceMap: function(path) {
+          return path + ".map";
+        },
+        mangle: false,
+        compress: false,
+        beautify: true
       },
       dist: {
         src: '<%= yeoman.dist %>/assets/js/require.js',

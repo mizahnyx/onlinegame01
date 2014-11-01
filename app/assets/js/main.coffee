@@ -7,6 +7,7 @@ define [
   "../../assets/js/models/appViewModel.js"
   "../../assets/js/appSocketIO.js"
   "threejs"
+  "threex-colladaloader"
   "jquery.bootstrap"
   "bacon"
 ], ($, ko, AppViewModel, AppSocketIO, THREE) ->
@@ -35,7 +36,7 @@ define [
   camera = new THREE.PerspectiveCamera VIEW_ANGLE, ASPECT, NEAR, FAR
   scene = new THREE.Scene()
   scene.add camera
-  camera.position.z = 5
+  camera.position.z = 20
   renderer.setSize WIDTH, HEIGHT
   $threejs_container.append renderer.domElement
 
@@ -43,6 +44,25 @@ define [
   material = new THREE.MeshLambertMaterial {color: 0x00ff00}
   cube = new THREE.Mesh geometry, material
   scene.add cube
+  
+  # loader = new THREE.ObjectLoader()
+  # loader.load "../../static/assets/gamedata/spaceship01.json", (obj) ->
+  #   material = new THREE.MeshLambertMaterial {
+  #     map: THREE.ImageUtils.loadTexture \
+  #       "../../static/assets/gamedata/spaceship01.png"
+  #   }
+  #   mesh = new THREE.Mesh obj, material
+  #   scene.add mesh
+
+  updateFn = () -> null
+  loader2 = new THREE.ColladaLoader()
+  console.log loader2
+  loader2.load "../../static/assets/gamedata/spaceship01.dae", (obj) ->
+    ship = obj.scene
+    scene.add ship
+    updateFn = () ->
+      ship.rotation.x += 0.1
+      ship.rotation.y += 0.1
 
   pointLight = new THREE.PointLight 0xFFFFFF
   pointLight.position.x = 5
@@ -52,8 +72,7 @@ define [
 
   render = ->
     requestAnimationFrame render
-    cube.rotation.x += 0.1
-    cube.rotation.y += 0.1
+    updateFn()
     renderer.render scene, camera
 
   render()
